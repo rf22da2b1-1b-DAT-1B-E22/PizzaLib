@@ -12,16 +12,19 @@ namespace PizzaLib.model
         private string _name;
         private double _pris;
 
-        public int Id { get => _id; 
-            set { 
+        public int Id
+        {
+            get => _id;
+            set
+            {
                 // betingelse
-                if( !(value >= 0) )
+                if (!(value >= 0))
                 {
                     throw new ArgumentException("Id skal være positiv");
                 }
 
                 _id = value;
-            
+
             }
         }
         public string Name
@@ -45,29 +48,32 @@ namespace PizzaLib.model
         public double Pris
         {
             get => _pris;
-            set {
+            set
+            {
                 // betingelse
-                if (!(40<=value && value<=120))
+                if (!(40 <= value && value <= 120))
                 {
                     throw new ArgumentException("Pris skal være mellem 40 og 120");
                 }
 
-                _pris = value; }
+                _pris = value;
+            }
         }
 
-        public Pizza(int id, string name, double pris) { 
+        public Pizza(int id, string name, double pris)
+        {
             _id = id;
             _name = name;
             _pris = pris;
-        
+
         }
 
-        public Pizza() : this(0, "dummy",100)
+        public Pizza() : this(0, "dummy", 100)
         { }
 
         public override string ToString()
         {
-            return "kommer senere";
+            return $"{{{nameof(Id)}={Id.ToString()}, {nameof(Name)}={Name}, {nameof(Pris)}={Pris.ToString()}}}";
         }
 
     }
