@@ -48,6 +48,10 @@ namespace PizzaLib.model.Tests
                 );
         }
 
+
+        /*
+         * Name
+         */
         [TestMethod()]
         [DataRow("12345")]
         [DataRow("Det er bare sjovt")]
@@ -89,6 +93,10 @@ namespace PizzaLib.model.Tests
             Assert.ThrowsException<ArgumentNullException>(() => pizza.Name = value);
         }
 
+
+        /*
+         * Constructor
+         */
         [TestMethod()]
         public void PizzaConstructorFailTest()
         {
@@ -97,6 +105,46 @@ namespace PizzaLib.model.Tests
 
             //act + assert
             Assert.ThrowsException<ArgumentException>(() => new Pizza(-1, "petre", 44));
+        }
+
+
+
+        /*
+         * Pris
+         */
+        [TestMethod()]
+        [DataRow(40)]
+        [DataRow(66)]
+        [DataRow(120)]
+        public void PizzaPriOKTest(double value)
+        {
+            // arrange
+            Pizza pizza = new Pizza();
+            double expectedPris = value;
+
+            // act
+            pizza.Pris = value;
+            double actualPris = pizza.Pris;
+
+
+            //assert
+            Assert.AreEqual(expectedPris, actualPris);
+        }
+
+        [TestMethod()]
+        [DataRow(39)]
+        [DataRow(121)]
+        [DataRow(-50)]
+        public void PizzaPrisFailTest(double value)
+        {
+            // arrange
+            Pizza pizza = new Pizza();
+
+            // act + assert
+            Assert.ThrowsException<ArgumentException>(
+                // act
+                () => pizza.Pris = value
+                );
         }
 
     }
