@@ -37,7 +37,7 @@ namespace PizzaLib.model
                 {
                     throw new ArgumentNullException("Der skal være et navn");
                 }
-                if (!(value.Length >= 5))
+                if (!(value.Trim().Length >= 5))
                 {
                     throw new ArgumentException("Navn skal være mindst 5 tegn");
                 }
@@ -62,9 +62,9 @@ namespace PizzaLib.model
 
         public Pizza(int id, string name, double pris)
         {
-            _id = id;
-            _name = name;
-            _pris = pris;
+            Id = id;
+            Name = name;
+            Pris = pris;
 
         }
 
