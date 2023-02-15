@@ -28,7 +28,6 @@ namespace PizzaLib.model.Tests
             pizza.Id = value;
             int actualId = pizza.Id;
 
-
             //assert
             Assert.AreEqual(expectedId, actualId);
         }
