@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using PizzaLib.model;
+using PrøvPizza;
 
 
 
@@ -60,6 +61,13 @@ foreach (Pizza2 p in pizzas)
 
 Console.WriteLine("Sorteret");
 pizzas.Sort();
+foreach (Pizza2 p in pizzas)
+{
+    Console.WriteLine(p);
+}
+
+Console.WriteLine("Sorteret efter pris");
+pizzas.Sort(new SortByPrice());
 foreach (Pizza2 p in pizzas)
 {
     Console.WriteLine(p);
